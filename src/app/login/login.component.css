@@ -1,0 +1,25 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.form{
+  margin-top: 10em;
+  margin-left: 4em;
+}
+
+.image{
+  background-image: url('../../assets/images/login.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 100vw;
+  height: 100vh;
+}
+
+.form-control{
+  width:75%;
+}
+
+.btn {
+  width: 75%;
+}

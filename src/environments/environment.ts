@@ -1,0 +1,1 @@
+export const baseUrl = 'https://assignment.leadtracker.cied.dev/v1/';
