@@ -24,3 +24,18 @@ h6{
     right: 12px;
     position: absolute;
 }
+
+.content{
+    padding: 5em 5em 5em 5em;
+}
+
+.nav-pills .nav-link {
+    padding: 0.5rem 1.5rem;
+    width: 120px;
+    border-radius: 20px;
+}
+
+.progress{
+    --bs-progress-height: 2rem;
+    margin-top: 30px;
+}
