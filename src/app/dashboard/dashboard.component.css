@@ -17,12 +17,28 @@ h6{
 
 .imageOuter{
    position: relative;
+   cursor: pointer;
 }
 
 .imageInner{
     top: 12px;
     right: 12px;
     position: absolute;
+}
+
+label{
+    font-weight: bold;
+    margin: 5px;
+}
+
+.card{
+    width: 200px;
+    margin: 5px;
+}
+
+.card:hover{
+    background-color: #0d6efd;
+    color: white;
 }
 
 .content{

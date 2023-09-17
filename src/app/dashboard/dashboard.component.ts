@@ -2,6 +2,7 @@ import { Component, OnInit , ViewChild } from '@angular/core';
 import { ApicallService } from '../apicall.service';
 import { ChartConfiguration, ChartData, ChartEvent, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
+import { Router } from '@angular/router';
 //import DataLabelsPlugin from 'chartjs-plugin-datalabels';
 
 @Component({
@@ -35,7 +36,7 @@ export class DashboardComponent implements OnInit{
   workshopCount:Number = 0;
   recentLeads:any =[];
   tabIndex:Number =0;
-  constructor(private apiService: ApicallService){
+  constructor(private apiService: ApicallService, private router:Router){
 
   }
 
@@ -183,7 +184,8 @@ export class DashboardComponent implements OnInit{
           labels: ['Contact made', 'Initial interest', 'First intro meeting', 'Follow up meeting', 'Workshop stage'],
           datasets: [
             { data: this.graphValues,
-            label:'' },
+            label:'',
+            },
           ],
         };
       })
@@ -214,18 +216,15 @@ export class DashboardComponent implements OnInit{
         min: 0,
       },
     },
-    // plugins: {
-    //   legend: {
-    //     display: true,
-    //   },
-    //   // datalabels: {
-    //   //   anchor: 'end',
-    //   //   align: 'end',
-    //   // },
-    // },
+    
   };
   public barChartType: ChartType = 'bar';
-
   
 
+  
+  logout(){
+    localStorage.setItem("token", "");
+    localStorage.setItem("userId","");
+    this.router.navigate(['']);
+  }
 }

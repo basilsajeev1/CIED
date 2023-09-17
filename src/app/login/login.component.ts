@@ -22,6 +22,7 @@ export class LoginComponent {
   
 
   login(){
+    
     if(this.formGroup.valid){
       this.apiService.login(this.formGroup.value).subscribe((result)=>{
         console.log(result)
@@ -31,7 +32,11 @@ export class LoginComponent {
           this.router.navigate(['/dashboard']);
         }
       })
+    }else{
+      alert("Please enter valid username and password")
     }
   }
+
+  
 
 }

@@ -4,7 +4,7 @@
             <img src="../../assets/images/image 10.png">
         </div>
         <div>
-            <span>Dashboard</span>
+            <span>Dashboard</span><br>
         </div>
         <div>
             <span>Leads</span>
@@ -27,7 +27,7 @@
             <img src="../../assets/images/Rectangle 5.png" alt="">
             <img src="../../assets/images/setting 1.png" alt="" class="imageInner">
         </div>
-        <div class="imageOuter">
+        <div class="imageOuter" (click)="logout()" title="log out">
             <img src="../../assets/images/Rectangle 5.png" alt="">
             <img src="../../assets/images/material-symbols_logout-rounded.png" alt="" class="imageInner">
         </div>
@@ -59,7 +59,7 @@
             <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">c</div> -->
             <div class="row">
                 <div class="col-md-4">
-                    Probabilities
+                    <label>Probabilities</label>
                     <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="50"
                         aria-valuemin="0" aria-valuemax="100">
                         <div class="progress-bar overflow-visible text-dark" [style.width.%]="high_percent"
@@ -89,93 +89,95 @@
                     </div>
                 </div>
                 <div class="col-md-8">
-                    Graph
+                    <label>Graph</label>
                     <canvas baseChart class="chart" [data]="barChartData" [options]="barChartOptions" width="300"
                         height="100" [type]="barChartType">
                     </canvas>
                 </div>
             </div>
             <div *ngIf="tabIndex == 0">
-                Active Leads Status
+                <label>Active Leads Status</label>
                 <div class="row">
-            
+
                     <div class="col-md-2">
-                        <div class="card" style="width: 14rem;">
+                        <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">Contact Made</h5>
+                                <h6 class="card-title">Contact Made</h6>
                                 <h5>{{contactMadeCount}}</h5>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-2">
-                        <div class="card" style="width: 14rem;">
+                        <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">Initial interest</h5>
+                                <h6 class="card-title">Initial interest</h6>
                                 <h5>{{initialInterCount}}</h5>
                             </div>
                         </div>
-            
+
                     </div>
                     <div class="col-md-2">
-                        <div class="card" style="width: 14rem;">
+                        <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">First intro meeting</h5>
+                                <h6 class="card-title">First intro meeting</h6>
                                 <h5>{{firstIntroCount}}</h5>
                             </div>
                         </div>
-            
+
                     </div>
                     <div class="col-md-2">
-                        <div class="card" style="width: 14rem;">
+                        <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">Follow up meeting</h5>
+                                <h6 class="card-title">Follow up meeting</h6>
                                 <h5>{{followUpCount}}</h5>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-2">
-                        <div class="card" style="width: 14rem;">
+                        <div class="card">
                             <div class="card-body">
-                                <h5 class="card-title">Workshop stage</h5>
+                                <h6 class="card-title">Workshop stage</h6>
                                 <h5>{{workshopCount}}</h5>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            Recently Active Leads
-            <img src="../../assets/images/Group 1086649.png" alt="">
-            <div>
-                <table class="table table-borderless">
-                    <thead>
-                      <tr>
-                        <th scope="col">Lead Name</th>
-                        <th scope="col">Date added</th>
-                        <th scope="col">Current state</th>
-                        <th scope="col">Probability</th>
-                        <th scope="col">Team size</th>
-                        <th scope="col">Location</th>
-                        <th scope="col">Revenue</th>
-                        <th scope="col">Category</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr *ngFor="let lead of recentLeads">
-                        <td>{{lead.name}}</td>
-                        <td>{{lead.created_on}}</td>
-                        <td>{{lead.current_stage.name}}</td>
-                        <td *ngIf="lead.probability<=24">Low</td>
-                        <td *ngIf="lead.probability>=25 && lead.probability <=49">Medium</td>
-                        <td *ngIf="lead.probability>=50">High</td>
-                        <td>{{lead.organization.team_size}} people</td>
-                        <td>{{lead.organization.country}}</td>
-                        <td>{{lead.organization.revenue}}</td>
-                        <td>{{lead.category.name}}</td>
-                        
-                      </tr>
-                      
-                    </tbody>
-                  </table>
+            <div style="margin-top: 20px;">
+                <label>Recently Active Leads</label>
+                <img src="../../assets/images/Group 1086649.png" alt="">
+                <div>
+                    <table class="table table-borderless">
+                        <thead>
+                            <tr>
+                                <th scope="col">Lead Name</th>
+                                <th scope="col">Date added</th>
+                                <th scope="col">Current state</th>
+                                <th scope="col">Probability</th>
+                                <th scope="col">Team size</th>
+                                <th scope="col">Location</th>
+                                <th scope="col">Revenue</th>
+                                <th scope="col">Category</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let lead of recentLeads">
+                                <td>{{lead.name}}</td>
+                                <td>{{lead.created_on}}</td>
+                                <td>{{lead.current_stage.name}}</td>
+                                <td *ngIf="lead.probability<=24">Low</td>
+                                <td *ngIf="lead.probability>=25 && lead.probability <=49">Medium</td>
+                                <td *ngIf="lead.probability>=50">High</td>
+                                <td>{{lead.organization.team_size}} people</td>
+                                <td>{{lead.organization.country}}</td>
+                                <td>{{lead.organization.revenue}}</td>
+                                <td>{{lead.category.name}}</td>
+
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
             </div>
             <div style="text-align: center;">
                 <img src="../../assets/images/Group 1086660.png" alt="">
