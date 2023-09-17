@@ -1,0 +1,26 @@
+span{
+    color: white;
+}
+
+.search{
+    border: none;
+    border-radius: 38px;
+}
+
+.profilePic{
+    border-radius: 50%;
+    height: 30px;
+}
+h6{
+    color: grey;
+}
+
+.imageOuter{
+   position: relative;
+}
+
+.imageInner{
+    top: 12px;
+    right: 12px;
+    position: absolute;
+}

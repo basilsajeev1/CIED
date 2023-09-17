@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ApicallService } from '../apicall.service';
 import { FormGroup,FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ export class LoginComponent {
   
   formGroup:FormGroup;
 
-  constructor(private apiService: ApicallService){
+  constructor(private apiService: ApicallService,private router:Router){
     this.formGroup = new FormGroup({
       username:new FormControl('',[Validators.required]),
       password:new FormControl('',[Validators.required])
@@ -24,6 +25,11 @@ export class LoginComponent {
     if(this.formGroup.valid){
       this.apiService.login(this.formGroup.value).subscribe((result)=>{
         console.log(result)
+        if(result.success == true){
+          localStorage.setItem("token", result.data.token);
+          localStorage.setItem("userId",result.data.id);
+          this.router.navigate(['/dashboard']);
+        }
       })
     }
   }
